@@ -1,4 +1,4 @@
-# Covid-19 App - nadimelhelou
+# Covid-19 App
 codvid-app-nadimelhelou created by GitHub Classroom
 
 ## Progress Tracking
