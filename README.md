@@ -5,4 +5,9 @@ codvid-app-nadimelhelou created by GitHub Classroom
 ### Steps 1-3: Setup REACT Native Environment, Go through REACT native Tutorial, Develop use case to display a map
 Deployed on an Android Virtual Device.
 
-![](images/map.png)
+![](media/map.png)
+
+### Step 4: Exercise the CODVID-19 API and display the data in your application as text
+Deployed on an Android Virtual Device.
+
+![](media/covid19api.gif)
