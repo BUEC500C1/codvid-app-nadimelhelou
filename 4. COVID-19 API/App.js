@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Button, Image, Alert, TouchableOpacity, Dimensions } from 'react-native';
+import { View, ScrollView, StyleSheet, Text, Button, Image, Alert, TouchableOpacity, Dimensions, FlatList } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -36,12 +36,58 @@ function HomeScreen({ navigation }) {
   );
 }
 
-function StatsScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Map Screen</Text>
-    </View>
-  );
+
+class StatsScreen extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+        dataSource: []
+    };
+  }
+
+  apiCall = () => {
+    fetch("https://api.covid19api.com/summary")
+      .then(response => response.json())
+      .then((responseJson)=> {
+        this.setState({
+          dataSource: responseJson.Countries
+        })
+      })
+      .catch(error=>console.log(error))
+  }
+  
+  printCountryInfo = (item) => {
+    <TouchableOpacity style={styles.list}>
+      <Text>Country: {item.Country}</Text>
+      <Text>Confirmed cases: {item.TotalConfirmed}</Text>
+      <Text>Deaths cases: {item.TotalDeaths}</Text>
+      <Text>Recovered cases: {item.TotalRecovered}</Text>
+    </TouchableOpacity>
+  }
+
+  render() {
+    const { dataSource } = this.state
+    this.apiCall();
+    return (
+      <ScrollView>
+        <View>
+        {
+          this.state.dataSource.map((item) => {
+            return (
+              <TouchableOpacity style={styles.list}>
+                <Text>Country: {item.Country}</Text>
+                <Text>Confirmed cases: {item.TotalConfirmed}</Text>
+                <Text>Deaths cases: {item.TotalDeaths}</Text>
+                <Text>Recovered cases: {item.TotalRecovered}</Text>
+              </TouchableOpacity>
+            );
+          })
+        }
+        </View>
+      </ScrollView>
+    );
+  }
 }
 
 const Stack = createStackNavigator();
@@ -58,3 +104,11 @@ function App() {
 }
 
 export default App;
+
+const styles = StyleSheet.create({
+  list: {
+    paddingVertical: 4,
+    margin: 5,
+    backgroundColor: "rgb(220,220,255)"
+  }
+});
