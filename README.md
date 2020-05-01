@@ -11,3 +11,8 @@ Deployed on an Android Virtual Device.
 Deployed on an Android Virtual Device.
 
 ![](media/covid19api.gif)
+
+### Step 5: Overlay the data on the maps
+Here is the final app which shows all the statistics on a map
+
+![](media/finalapp.gif)
