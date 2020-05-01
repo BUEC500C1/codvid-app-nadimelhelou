@@ -1,6 +1,9 @@
 # Covid-19 App
 codvid-app-nadimelhelou created by GitHub Classroom
 
+## Running
+Don't forget to add your own Google API key [here](https://github.com/BUEC500C1/codvid-app-nadimelhelou/blob/master/5.%20COVID-19%20Map%20App/android/app/src/main/AndroidManifest.xml#L28) (the current one has been deactivated).
+
 ## Progress Tracking
 ### Steps 1-3: Setup REACT Native Environment, Go through REACT native Tutorial, Develop use case to display a map
 Deployed on an Android Virtual Device.
